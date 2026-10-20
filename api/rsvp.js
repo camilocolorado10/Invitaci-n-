@@ -26,7 +26,7 @@ module.exports = async (req, res) => {
       let b = req.body;
       if (typeof b === "string") b = JSON.parse(b || "{}");
       b = b || {};
-      if (b.web) return res.status(200).json({ ok: true }); // trampa anti-spam
+      if (b.web) return res.status(200).json({ ok: true });
       const name = String(b.name || "").trim().slice(0, 80);
       const guests = Math.min(Math.max(parseInt(b.guests, 10) || 1, 1), 20);
       const message = String(b.message || "").trim().slice(0, 300);
